@@ -30,7 +30,9 @@ The company must also satisfy its customer demand, which is 3,000 barrels a day 
 # solving the problem with linear programming and Pulp : 
 
 ## sets : 
-- C = {c1, c2, c3}
+- C = {c1, c2, c3} for crudes
+- G = {R, S, D} for gasoline 
+- Q = {O,L} for quality criteria 
 
 ## variables 
 
