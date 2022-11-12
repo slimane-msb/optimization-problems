@@ -45,13 +45,13 @@ $$Max (Benifits) \ such \ that$$
 
 $$Benifits \ = \ sell - purchase - ads - production$$ 
 
-$$sell = 70 ns + 60 nr + 50 nd \ = \sum_{g \in G} price(g)*ng$$ 
+$$sell = 70 ns + 60 nr + 50 nd \ = \sum_{g \in G} price(g)\times ng$$ 
 
-$$purchase = 45 nc1 + 35 nc2 + 25 nc3 \ = \sum_{c \in C} price(c)*nc$$
+$$purchase = 45 nc1 + 35 nc2 + 25 nc3 \ = \sum_{c \in C} price(c) \times nc$$
 
 $$ads= as + ar + ad = \sum_{g \in G} a(g)$$
 
-$$production = 4*(nc1+nc2+nc3) = 4*\sum_{ c \in C} n(c)$$
+$$production = 4 \times (nc1+nc2+nc3) = 4 \times \sum_{ c \in C} n(c)$$
 
 ## constraintes 
 - alpha : 
@@ -64,11 +64,13 @@ $$nc3 \le 5k$$
 
 - beta : 
 
-$$ns \ge 3k+10*as$$
+$$ns \ge 3k+10 \times as$$
 
-$$nr \ge 2k+10*ar$$
+$$nr \ge 2k+10 \times ar$$
 
-$$nd \ge 1k+10*ad$$
+$$nd \ge 1k+10 \times ad$$
 
 - gama : 
+
+$$nc1+nc2+nc3 \le 14k$$
 
