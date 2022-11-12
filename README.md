@@ -3,7 +3,7 @@ application of Pulp to implement a linear programming solution for optimization 
 
 
 
-# solving the problem with linear programming and Pulp : 
+# solving the  blending problem using linear programming and Pulp : 
 
 ## sets : 
 - C = {c1, c2, c3} for crudes
