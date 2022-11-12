@@ -2,8 +2,16 @@ import pulp
 
 print ("oil")
 
-def optimize_me(crudes, gasoline, costs, subs):
-    return 1
+def optimize_me(crudes, gasolines, costs, subs):
+    # variable names: 
+    var_names =  [crude["name"] for crude in crudes]
+    var_names += [gasoline["name"] for gasoline in gasolines]
+    for gasoline in gasolines: 
+        var_names += [gasoline["name"]+crude["name"] for crude in crudes]
+    var_names += ["a"+gasoline["name"] for gasoline in gasolines]
+
+    print(var_names)
+    
 
 optimize_me (
     crudes =[
@@ -12,7 +20,7 @@ optimize_me (
         dict ( name = "c3" , octane = 8  , lead = 3 ,    price = 25 , max = 5000) ,
     ] ,
 
-    gasoline =[
+    gasolines =[
         dict ( name = "super"    , octane = 10 , lead = 1 , price = 70 , max = 3000) ,
         dict ( name = "regular"  , octane = 8  , lead = 2 , price = 60 , max = 2000) ,
         dict ( name = "diesel"   , octane = 6  , lead = 1 , price = 50 , max = 1000) ,
