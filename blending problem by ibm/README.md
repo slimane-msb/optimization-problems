@@ -30,6 +30,7 @@ The company must also satisfy its customer demand, which is 3,000 barrels a day 
 # solving the problem with linear programming and Pulp : 
 
 ## sets : 
+- C = {c1, c2, c3}
 
 ## variables 
 
