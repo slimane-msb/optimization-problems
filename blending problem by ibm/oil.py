@@ -24,7 +24,7 @@ def optimize_me(crudes, gasolines, costs, subs, prod):
 
         # beta : 
     for gasoline in gasolines: 
-        prob += pulp.lpSum(variables[gasoline["name"]] ) >= gasoline["max"]+prod["ads_incr"]*variables["a"+gasoline["name"]]
+        prob += pulp.lpSum(variables[gasoline["name"]] ) == gasoline["max"]+prod["ads_incr"]*variables["a"+gasoline["name"]]
 
         # gama : 
     prob += pulp.lpSum(variables[crude["name"]] for crude in crudes ) <=  prod["max_prod"]
