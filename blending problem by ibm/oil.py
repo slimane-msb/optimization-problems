@@ -29,10 +29,16 @@ def optimize_me(crudes, gasolines, costs, subs, prod):
         # gama : 
     prob += pulp.lpSum(variables[crude["name"]] for crude in crudes ) <=  prod["max_prod"]
 
-        # sigma o: sup
+        # sigma:
     for sub in subs:
         for gasoline in gasolines: 
-            prob += pulp.lpSum(sub["dir"]*crude[sub["name"]]*variables[gasoline["name"]+crude["name"]] for crude in crudes ) >=  sub["dir"]*gasoline[sub["name"]]
+            prob += pulp.lpSum(sub["dir"]*crude[sub["name"]]*variables[gasoline["name"]+crude["name"]] for crude in crudes ) >=  sub["dir"]*gasoline[sub["name"]] * variables[gasoline["name"]]
+        
+        # omega:
+    for crude in crudes: 
+        prob += pulp.lpSum(variables[gasoline["name"]+crude["name"]] for gasoline in gasolines ) <=  variables[crude["name"]]
+        
+
 
     # fonction objective 
         # sell 
