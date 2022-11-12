@@ -35,6 +35,10 @@ The company must also satisfy its customer demand, which is 3,000 barrels a day 
 - Q = {O,L} for quality criteria 
 
 ## variables 
+- $ n(b) \; such \; that \;  b \in C \cup G \; with \; n(b) \ge 0$
+- $ m(g,c) \; tq \; c \in C \; and \; g \in G \; for \; number \; of \; c \; in \; g \; with \; m(g,c) \ge 0 $
+- $a(g) \; with \; g \in G \; for \; ads \; in \; g \; with \; a(g) \ge 0$
+
 
 
 ## objective function 
