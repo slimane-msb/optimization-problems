@@ -54,3 +54,21 @@ $$ads= as + ar + ad = \sum_{g \in G} a(g)$$
 $$production = 4*(nc1+nc2+nc3) = 4*\sum_{ c \in C} n(c)$$
 
 ## constraintes 
+- alpha : 
+
+$$nc1 \le 5k$$
+
+$$nc2 \le 5k$$
+
+$$nc3 \le 5k$$
+
+- beta : 
+
+$$ns \ge 3k+10*as$$
+
+$$nr \ge 2k+10*ar$$
+
+$$nd \ge 1k+10*ad$$
+
+- gama : 
+
