@@ -49,4 +49,8 @@ $$sell = 70 ns + 60 nr + 50 nd \ = \sum_{g \in G} price(g)*ng$$
 
 $$purchase = 45 nc1 + 35 nc2 + 25 nc3 \ = \sum_{c \in C} price(c)*nc$$
 
+$$ads= as + ar + ad = \sum_{g \in G} a(g)$$
+
+$$production = 4*(nc1+nc2+nc3) = 4*\sum_{ c \in C} n(c)$$
+
 ## constraintes 
