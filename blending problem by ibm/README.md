@@ -74,3 +74,20 @@ $$nd \ge 1k+10 \times ad$$
 
 $$nc1+nc2+nc3 \le 14k$$
 
+- sigma o: 
+
+$$12 m(s,c1) + 6m(s,c2) + 8m(s,c3) \ge 10$$
+
+$$12 m(r,c1) + 6m(r,c2) + 8m(r,c3) \ge 8$$
+
+$$12 m(d,c1) + 6m(d,c2) + 8m(d,c3) \ge 6$$
+
+
+- sigma L: 
+
+$$0.5m(s,c1) + 2m(s,c2) + 3m(s,c3) \ge 1$$
+
+$$0.5m(r,c1) + 2m(r,c2) + 3m(r,c3) \ge 2$$
+
+$$0.5m(d,c1) + 2m(d,c2) + 3m(d,c3) \ge 1$$
+
