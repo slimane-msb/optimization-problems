@@ -42,8 +42,11 @@ The company must also satisfy its customer demand, which is 3,000 barrels a day 
 ## objective function 
 
 $$Max (Benifits) \ such \ that$$ 
+
 $$Benifits \ = \ sell - purchase - ads - production$$ 
+
 $$sell = 70 ns + 60 nr + 50 nd \ = \sum_{g \in G} price(g)*ng$$ 
+
 $$purchase = 45 nc1 + 35 nc2 + 25 nc3 \ = \sum_{c \in C} price(c)*nc$$
 
 ## constraintes 
