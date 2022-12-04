@@ -1,11 +1,4 @@
 import math
-
-
-
-
-
-
-
 from cmath import sqrt
 from random import getrandbits
 from webbrowser import get
@@ -14,14 +7,11 @@ from webbrowser import get
 def create_grid(n):
     return [[0 for i in range(n)] for i in range(n)]
 
-
 def get_region_size(su):
     return int(math.sqrt(su))
 
 def sudoku_to_str1(grid):
     [print(*row) for row in grid]
-
-
 
 def sudoku_to_str(grid,compact):
     if not compact :
@@ -40,7 +30,6 @@ def sudoku_to_str(grid,compact):
                 else : print(e, end =' ') 
             print("  \n")
 
-
 def load_sudoku(n,s):
     rows = s.split("\n")
     size = len(rows[0])
@@ -48,8 +37,7 @@ def load_sudoku(n,s):
     for row in range(size):
         for j in range(size):
             grid[row][j]=int(rows[row][j])
-    return grid
-    
+    return grid  
 
 def numbers_in_line(su, i):
     res=[False]*(len(su)+1)
@@ -58,15 +46,12 @@ def numbers_in_line(su, i):
     res[0]=False
     return res
 
-
 def numbers_in_column(su, i):
     res=[False]*(len(su)+1)
     for line in range(len(su)):
         res[su[line][i]]=True
     res[0]=False
     return res
-
-
 
 def numbers_in_region(su, i, j):
     res=[False]*(len(su)+1)
@@ -76,7 +61,6 @@ def numbers_in_region(su, i, j):
             res[su[l+i][c+j]]=True
     res[0]=False
     return res 
-
 
 def region_of_cell(su, i, j):
     size = get_region_size(len(su))
@@ -109,7 +93,6 @@ def solve_easy(su) :
     if solve_one_easy(su) != [] : solve_easy(su)
 
 
-
 # tests : 
 # print(create_grid(2))
 # print(get_region_size(9))
@@ -135,6 +118,8 @@ my_su9 = load_sudoku (9 , my_su9_str )
 # print(solve_one_easy(my_su4))
 # print(solve_one_easy(my_su9))
 
+print ( sudoku_to_str ( my_su4 , False ) )
+print ( sudoku_to_str ( my_su9 , False ) )
 
 solve_easy ( my_su4 )
 solve_easy ( my_su9 )
