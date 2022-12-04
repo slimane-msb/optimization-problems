@@ -43,9 +43,10 @@ def optimize_me(n):
         for k in range(9): 
             prob += pulp.lpSum( variables[(i//3)+3*(reg//3)][(i%3)+3*(reg%3)][k] for i in range(9)) == 1                 
 
-    prob.solve(pulp.PULP_CBC_CMD(msg=True))
+    prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
-    print_prob(prob=prob, lpvar=variables)  
+    print_sudoku_from_plpvar(variables)
+    # print_prob(prob=prob, lpvar=variables)  
     # print_prob_details(prob)   
 
 
@@ -60,21 +61,22 @@ def print_prob(
     expr: pulp.LpAffineExpression = None,
 ):
     print("+", "-" * 78, "+", sep="")
-    print("Name", prob.name)
-    print("Status", pulp.LpStatus[prob.status])
+    # print("Name", prob.name)
+    # print("Status", pulp.LpStatus[prob.status])
     if pulp.LpStatusOptimal != prob.status:
         return   
+    print_sudoku_from_plpvar(lpvar)
+
+
+
+def print_sudoku_from_plpvar(lpvar): 
     for l in range(9):
         for c in range(9):
             for k in range(9): 
                 if lpvar[l][c][k].value() :
-                    print(str(l)+str(c)+":" +str(k)) 
+                    print(k, end=" ") 
+        print() 
 
-
-def print_sudoku_from_plpvar(pvar): 
-    for l in range(9):
-        for c in range(9): 
-            print()
 
 optimize_me (9)
 
