@@ -1,4 +1,5 @@
 import pulp
+from itertools import product
 
 print ("sudoku")
 
@@ -28,19 +29,16 @@ def optimize_me(n):
 
 
     # contraintes lines: one int per line 
-    for l in range(9): 
-        for k in range(9):
+    for l,k in product(range(9),range(9)): 
             prob += pulp.lpSum( variables[l][c][k] for c in range(9)) == 1 
 
     # contraintes column: one int per column  
-    for c in range(9): 
-        for k in range(9): 
+    for c,k in product(range(9),range(9)): 
             prob += pulp.lpSum( variables[l][c][k]  for l in range(9)) ==1
                 
 
     # contraintes region: one in for region as c = (i%3)+3*(reg%3) and l = (i/3)+3*(reg/3) 
-    for reg in range(9):
-        for k in range(9): 
+    for reg,k in product(range(9),range(9)): 
             prob += pulp.lpSum( variables[(i//3)+3*(reg//3)][(i%3)+3*(reg%3)][k] for i in range(9)) == 1                 
 
     prob.solve(pulp.PULP_CBC_CMD(msg=False))
@@ -74,7 +72,7 @@ def print_sudoku_from_plpvar(lpvar):
         for c in range(9):
             for k in range(9): 
                 if lpvar[l][c][k].value() :
-                    print(k, end=" ") 
+                    print(k+1, end=" ") 
         print() 
 
 
