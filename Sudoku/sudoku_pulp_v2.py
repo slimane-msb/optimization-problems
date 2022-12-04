@@ -21,6 +21,11 @@ def optimize_me(n):
     prob += variables[2][2][8] == 1
     prob += variables[2][3][1] == 1
 
+    # contraintes one int per zone : 
+    for l in range(9): 
+        for c in range(9): 
+            prob += pulp.lpSum(variables[l][c][k] for k in range(9)) == 1 
+
 
     # contraintes lines: one int per line 
     for l in range(9): 
