@@ -36,11 +36,18 @@ def optimize_me(n):
     # contraintes region: one in for region as c = (i%3)+3*(reg%3) and l = (i/3)+3*(reg/3) 
     for reg in range(9):
         for k in range(9): 
-            prob += pulp.lpSum( variables[(i//3)+3*(reg//3)][(i%3)+3*(reg%3)][k] for i in range(9)) == 1 
-
-    print_prob(prob=prob, lpvar=variables)                     
+            prob += pulp.lpSum( variables[(i//3)+3*(reg//3)][(i%3)+3*(reg%3)][k] for i in range(9)) == 1                 
 
     prob.solve(pulp.PULP_CBC_CMD(msg=True))
+
+    print_prob(prob=prob, lpvar=variables)  
+    # print_prob_details(prob)   
+
+
+def print_prob_details(prob):
+    print("+", "-" * 78, "+", sep="")
+    print(prob)
+
 
 def print_prob(
     prob: pulp.LpProblem,
@@ -52,13 +59,17 @@ def print_prob(
     print("Status", pulp.LpStatus[prob.status])
     if pulp.LpStatusOptimal != prob.status:
         return   
-    print(prob)
     for l in range(9):
         for c in range(9):
             for k in range(9): 
                 if lpvar[l][c][k].value() :
-                    print(str(l)+str(c)+str(k)+str(lpvar[l][c][k].value())) 
+                    print(str(l)+str(c)+":" +str(k)) 
 
+
+def print_sudoku_from_plpvar(pvar): 
+    for l in range(9):
+        for c in range(9): 
+            print()
 
 optimize_me (9)
 
